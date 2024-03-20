@@ -5,45 +5,51 @@ namespace ContainerApp.Containers;
 public class Container
 {
     //serial number count
-    protected static int numberCount = 1;
+    protected static int NumberCount = 1;
 
     //kg
-    private double cargoMass { get; set; }
+    protected double CargoMass { get; set; }
 
     //cm
     protected double Height { get; set; }
 
     //kg
-    protected double containerWeight { get; set; }
+    protected double ContainerWeight { get; set; }
 
     //cm
-    protected double depth { get; set; }
+    protected double Depth { get; set; }
 
-    protected string serialNumber { get; set; }
+    protected string? SerialNumber { get; set; }
 
     //kg
-    private double maximumPayload { get; set; }
+    protected double MaximumPayload { get; set; }
 
-    public Container(double height, double containerWeight, double depth)
+    protected Container(double height, double containerWeight, double depth, double maximumPayload)
     {
-        Height = height;
-        this.containerWeight = containerWeight;
-        this.depth = depth;
+        this.MaximumPayload = maximumPayload;
+        this.Height = height;
+        this.ContainerWeight = containerWeight;
+        this.Depth = depth;
+    }
+
+    internal static Container CreateInstance(double height, double containerWeight, double depth, double maximumPayload)
+    {
+        return new Container(height, containerWeight, depth, maximumPayload);
     }
 
 
-    public void emptyngTheCargo()
+    public void EmptyTheCargo()
     {
-        cargoMass = 0;
+        CargoMass = 0;
     }
 
-    public void loadTheContainer(double givenCargoMass)
+    protected virtual void LoadTheContainer(double givenCargoMass)
     {
-        if (maximumPayload - cargoMass - givenCargoMass < 0)
+        if (MaximumPayload - CargoMass - givenCargoMass < 0)
         {
-            throw new OverfillException(givenCargoMass.ToString());
+            throw new OverfillException("This mass: " + givenCargoMass + " can't be stored!");
         }
 
-        cargoMass += givenCargoMass;
+        CargoMass += givenCargoMass;
     }
 }
