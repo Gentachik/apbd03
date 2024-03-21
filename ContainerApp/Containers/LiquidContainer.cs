@@ -4,17 +4,17 @@ namespace ContainerApp.Containers;
 
 public class LiquidContainer : Container, IHazardNotifier
 {
-    private bool IsHazardous { set; get; }
+    private bool IsHazard { set; get; }
 
-    public LiquidContainer(double height, double containerWeight, double depth, double maximumPayload, bool isHazardous)
+    public LiquidContainer(double height, double containerWeight, double depth, double maximumPayload, bool isHazard)
         : base(height, containerWeight, depth, maximumPayload)
     {
         SerialNumber = "KON-L-" + NumberCount;
         NumberCount += 1;
-        IsHazardous = isHazardous;
+        IsHazard = isHazard;
     }
 
-    public void HazardousSituation()
+    public void HazardSituation()
     {
         Console.WriteLine("In " + SerialNumber + " a hazardous situation!!!");
     }
@@ -22,11 +22,11 @@ public class LiquidContainer : Container, IHazardNotifier
     protected override void LoadTheContainer(double givenCargoMass)
     {
         base.LoadTheContainer(givenCargoMass);
-        if (IsHazardous)
+        if (IsHazard)
         {
             if (MaximumPayload * 0.5 - CargoMass - givenCargoMass < 0)
             {
-                HazardousSituation();
+                HazardSituation();
             }
             else
             {
@@ -37,12 +37,24 @@ public class LiquidContainer : Container, IHazardNotifier
         {
             if (MaximumPayload * 0.9 - CargoMass - givenCargoMass < 0)
             {
-                HazardousSituation();
+                HazardSituation();
             }
             else
             {
                 CargoMass += givenCargoMass;
             }
         }
+    }
+
+    public override string ToString()
+    {
+        return "Container: \n" +
+               "Height: " + Height +
+               "\nWeight: " + ContainerWeight +
+               "\nDepth: " + Depth +
+               "\nMaximum payload: " + MaximumPayload +
+               "\nSerial number: " + SerialNumber +
+               "\nCurrent cargo mass: " + CargoMass +
+               "\nIs hazard: " + (IsHazard ? "yes" : "no");
     }
 }

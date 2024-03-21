@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ContainerApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+de4cfed6900c65f906c141161bab83c92f6d32b3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5c1c60e36f476476a187b7f03e06c5bf2f4f03fd")]
 [assembly: System.Reflection.AssemblyProductAttribute("ContainerApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ContainerApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -26,4 +26,30 @@ public class RefrigeratedContainer : Container
             _ => _requiredTemperature
         };
     }
+
+    protected void LoadTheContainer(double givenCargoMass, string type)
+    {
+        if (type == _typeOfProduct)
+        {
+            base.LoadTheContainer(givenCargoMass);
+        }
+        else
+        {
+            Console.WriteLine("Wrong type of product");
+        }
+    }
+
+    public override string ToString()
+    {
+        return "Container: \n" +
+               "Height: " + Height +
+               "\nWeight: " + ContainerWeight +
+               "\nDepth: " + Depth +
+               "\nMaximum payload: " + MaximumPayload +
+               "\nSerial number: " + SerialNumber +
+               "\nCurrent cargo mass: " + CargoMass +
+               "\nType of products: " + _typeOfProduct +
+               "\nCurrent temperature: " + TemperatureInContainer +
+               "\nRequired temperature: " + _requiredTemperature;
+    }
 }

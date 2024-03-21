@@ -2,5 +2,5 @@
 
 public interface IHazardNotifier
 {
-    protected void HazardousSituation();
+    protected void HazardSituation();
 }

@@ -8,18 +8,18 @@ public class Container
     protected static int NumberCount = 1;
 
     //kg
-    protected double CargoMass { get; set; }
+    public double CargoMass { get; set; }
 
     //cm
     protected double Height { get; set; }
 
     //kg
-    protected double ContainerWeight { get; set; }
+    public double ContainerWeight { get; set; }
 
     //cm
     protected double Depth { get; set; }
 
-    protected string? SerialNumber { get; set; }
+    protected string? SerialNumber { get; init; }
 
     //kg
     protected double MaximumPayload { get; set; }
@@ -36,7 +36,6 @@ public class Container
     {
         return new Container(height, containerWeight, depth, maximumPayload);
     }
-
 
     public virtual void EmptyTheCargo()
     {
