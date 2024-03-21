@@ -38,7 +38,7 @@ public class Container
     }
 
 
-    public void EmptyTheCargo()
+    public virtual void EmptyTheCargo()
     {
         CargoMass = 0;
     }
